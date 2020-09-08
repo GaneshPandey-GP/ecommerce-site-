@@ -1,0 +1,13 @@
+
+product__image{
+    height: 120px;
+    width: auto;
+    max-width: 200px;
+}
+
+card{
+    width: 18rem;
+    height: 10px;
+    color: red;
+    background-color: black;
+}
