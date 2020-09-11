@@ -9,6 +9,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import Typography from '@material-ui/core/Typography';
 import "./Products.css"
 
@@ -55,10 +56,7 @@ console.log(products)
                     </CardActionArea>
                     <CardActions>
                         <Button size="small" color="primary">
-                        Share
-                        </Button>
-                        <Button size="small" color="primary">
-                        Learn More
+                            <AddShoppingCartIcon />
                         </Button>
                     </CardActions>
                 </Card>
