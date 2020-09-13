@@ -18,10 +18,8 @@ INSTALLED_APPS = [
     'corsheaders',
     
     'django.contrib.sites',
-    'allauth',
-    'allauth.account',
-    'rest_auth.registration',
-    'rest_auth',
+    'knox',
+
     'rest_framework',
     'rest_framework.authtoken',
 ]
@@ -72,12 +70,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.AllowAny',
-    ),
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.TokenAuthentication',
-    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',),
 }
 
 ACCOUNT_EMAIL_REQUIRED = True
