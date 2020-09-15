@@ -1,33 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import axios from "axios";
-
-import {productListURL} from '../constraints'
-import { makeStyles } from '@material-ui/core/styles';
 import {Card, Button} from 'react-bootstrap';
 import "./Products.css"
-import NavigationBar from './Navbar';
+import { useDataLayerValue } from '../DataLayer';
 
 function Products() {
 
-    const [products, setProducts] = useState([])
+    const [{product_list}, dispatch] = useDataLayerValue()
 
-    useEffect(() => {
-        axios
-        .get(productListURL)
-        .then(res => {
-            console.log(res.data)
-            setProducts(res.data)
-        })
-        .catch(err => {
-          console.log("went wrong")
-        });
-    },[])
-console.log(products)
     return(
         <div>
-            <NavigationBar />
             <div className="container d-flex justify-content-around">
-                {products.map(product => (
+                {product_list.map(product => (
                     <Card style={{ width: '18rem' }}>
                         <Card.Img variant="top" src={product.thumbnail} />
                         <Card.Body>
@@ -35,7 +18,7 @@ console.log(products)
                             <Card.Text>
                                 {product.description}
                             </Card.Text>
-                            <Button variant="primary">Go somewhere</Button>
+                            <Button variant="primary">View Product</Button>
                         </Card.Body>
                     </Card>
                 ))}

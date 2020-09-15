@@ -1,36 +1,21 @@
-import React from 'react';
-import { Link } from "react-router-dom";
-import {Navbar, NavDropdown, Nav} from 'react-bootstrap'
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-function NavigationBar() {
-
-  return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Navbar.Brand href="#home">Ecommerce</Navbar.Brand>
-      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-      <Navbar.Collapse id="responsive-navbar-nav">
-        <Nav className="mr-auto">
-          <Link to ="/products" className="nav-link">
-            Products
-          </Link>
-          <Nav.Link href="#pricing">Pricing</Nav.Link>
-          <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-          </NavDropdown>
-        </Nav>
-        <Nav>
-          <Nav.Link href="#deets">More deets</Nav.Link>
-          <Nav.Link eventKey={2} href="#memes">
-            Dank memes
-          </Nav.Link>
-        </Nav>
-      </Navbar.Collapse>
-    </Navbar>
-  );
+function Navbar() {
+    return (
+        <nav className="navbar navbar-expand-lg navbar-light bg-warning text-light">
+            <Link className="navbar-brand" to="#">Authsystem</Link>
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div className="navbar-nav">
+                    <Link className="nav-link active" to="/">Home <span className="sr-only">(current)</span></Link>
+                    <Link className="nav-link active" to="/products">Products</Link>
+                </div>
+            </div>
+        </nav>
+    )
 }
 
-export default NavigationBar;
+export default Navbar

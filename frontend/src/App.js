@@ -1,16 +1,29 @@
-import React from 'react';
-import Home from './components/Home';
+import React, {useEffect} from 'react';
 import BaseRouter from "./routes";
-import { BrowserRouter as Router } from "react-router-dom";
+import { useDataLayerValue } from './DataLayer';
+import axios from "axios";
 
+import {productListURL} from './constraints'
 
 function App() {
+  const [{product_list}, dispatch] = useDataLayerValue()
+
+  useEffect(() => {
+    axios
+      .get(productListURL)
+      .then(res => {
+        dispatch({
+          type: "SET_PRODUCT_LIST",
+          product_list: res.data
+        })
+      })
+
+  }, [dispatch])
+
   return (
-    <Router>
       <div>        
         <BaseRouter />
       </div>
-    </Router>    
   );
 }
 
